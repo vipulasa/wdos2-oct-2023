@@ -1,0 +1,81 @@
+- Select the date or date range
+- Select the type of the room
+- Select the number of rooms
+- Select the number of adults & children
+- Click on the button “Check Availability”
+- If the room is available, you can proceed to book the room by clicking on the 
+    button “Book Now”
+- If the room is not available, you can check the availability of other rooms by 
+    changing the date and clicking on the button “Check Availability”
+- Select Adventure Activities based on the number of adults & children
+- Select a guide for the activities if required
+- Click on the button “Book Now”
+- Enter the details of the guest
+- Click on the button “Pay Now”
+- Enter the card details
+- Click on the button “Pay”
+- If the payment is successful, the booking is confirmed and the booking details must be displayed
+
+
+How to generate an activity diagram using ChatGPT
+
+- Copy the tasks
+- Paste it in the ChatGPT and use the prompt "Create a Mermaid activity diagram using the above points"
+
+
+
+Mermaid Code
+
+graph TD
+
+    subgraph User
+        A[Select Date/Range]
+        B[Select Room Type]
+        C[Select Number of Rooms]
+        D[Select Number of Adults & Children]
+        E[Click Check Availability]
+        F[If Room Available]
+        G[Click Book Now]
+        H[Enter Guest Details]
+        I[Click Pay Now]
+        J[Enter Card Details]
+        K[Click Pay]
+        L[Payment Successful]
+        M[Booking Confirmed]
+        N[Display Booking Details]
+        O[End]
+        P[If Room Not Available]
+        Q[Change Date and Check Availability for Other Rooms]
+    end
+
+    subgraph Hotel
+        R[Check Room Availability]
+        S[Select Adventure Activities]
+        T[Select Guide]
+        U[Click Book Now for Activities]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F -->|Yes| G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K -->|Successful| L
+    L --> M
+    M --> N
+    N --> O
+
+    F -->|No| P
+    P --> Q
+    Q --> E
+
+    R --> E
+    F -->|Yes| S
+    S --> T
+    T --> U
+    U --> H
