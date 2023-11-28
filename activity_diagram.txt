@@ -24,7 +24,7 @@ How to generate an activity diagram using ChatGPT
 
 
 
-Mermaid Code
+Mermaid Code    
 
 graph TD
 
