@@ -1,59 +1,36 @@
 document.addEventListener("alpine:init", () => {
   Alpine.store("adventures", {
-    diving: {
-      name: "Scuba Diving",
-      local: [
-        {
-          type: "adult",
-          price: 5000,
-        },
-        {
-          type: "child",
-          price: 2000,
-        },
-      ],
-      foreign: [
-        {
-          type: "adult",
-          price: 10000,
-        },
-        {
-          type: "child",
-          price: 5000,
-        },
-      ],
-      guide: {
-        adult: 1000,
-        child: 500,
+    name: "Scuba Diving",
+    adult: [
+      {
+        type: "Local Adult",
+        price: 5000,
       },
-    },
-
-    offroad: {
-      name: "Off Road Adventure",
-      local: [
-        {
-          type: "adult",
-          price: 5000,
-        },
-        {
-          type: "child",
-          price: 2000,
-        },
-      ],
-      foreign: [
-        {
-          type: "adult",
-          price: 10000,
-        },
-        {
-          type: "child",
-          price: 5000,
-        },
-      ],
-      guide: {
-        adult: 1000,
-        child: 500,
+      {
+        type: "Foreign Adult",
+        price: 10000,
+      }
+    ],
+    child: [
+      {
+        type: "Local Child",
+        price: 2000,
       },
-    },
+      
+      {
+        type: "Foreign Child",
+        price: 5000,
+      },
+    ],
+    guide: [
+      {
+        type: "Adult",
+        price: 1000,
+      },
+      {
+        type: "Child",
+        price: 500,
+      },
+    ],
   });
 });

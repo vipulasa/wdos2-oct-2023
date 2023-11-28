@@ -33,7 +33,37 @@ document.addEventListener("alpine:init", () => {
             type: 'ROYAL SUITE',
             price: 300000,
           }, 
-        ]
+        ],
+        conditions: [        
+          {
+            type: 'Children',
+            age: '0-4',
+            price: 0,
+          },
+          {
+            type: 'Children',
+            age: '5-12',
+            price: 5000,
+          },
+          {
+            type: 'Extra Bed',
+            price: 8000,
+          },
+        ],
+      promo_codes : [
+        {
+          code : 'Promo123',
+          discount : 5,
+        },
+        {
+          code : 'Promo456',
+          discount : 10,
+        },
+        {
+          code : 'Promo789',
+          discount : 15,
+        },
+      ]
     });
   });
   
