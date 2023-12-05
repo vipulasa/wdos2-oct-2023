@@ -10,8 +10,8 @@ document.addEventListener("alpine:init", () => {
       country: "",
     },
     reservation: {
-      hotel: "Heritance Kandalama",
-      room_type: "",
+      hotel: "Heritance Kandalama",    
+      room_cost: 0,
       number_of_rooms: "",
       check_in: "",
       check_out: "",
@@ -24,8 +24,10 @@ document.addEventListener("alpine:init", () => {
       status: "pending",
       payment_type: "card",
       adventure_type: "Scuba Diving",
-      adventure_adults: 0,
-      adventure_children: 0,
+      adventure_adults_local: 0,
+      adventure_children_local: 0,
+      adventure_adults_foreign: 0,
+      adventure_children_foreign: 0,
     },
     updateUser() {
       localStorage.setItem(
@@ -36,13 +38,18 @@ document.addEventListener("alpine:init", () => {
         "user_reservation",
         JSON.stringify(this.$store.user.reservation)
       );
+
+
     },
     init() {
+
       this.profile =
         JSON.parse(localStorage.getItem("user_profile")) || this.profile;
+
       this.reservation =
         JSON.parse(localStorage.getItem("user_reservation")) ||
         this.reservation;
+
     },
   });
 });

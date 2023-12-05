@@ -1,27 +1,15 @@
 document.addEventListener("alpine:init", () => {
   Alpine.store("adventures", {
     name: "Scuba Diving",
-    adult: [
-      {
-        type: "Local Adult",
-        price: 5000,
-      },
-      {
-        type: "Foreign Adult",
-        price: 10000,
-      }
-    ],
-    child: [
-      {
-        type: "Local Child",
-        price: 2000,
-      },
-      
-      {
-        type: "Foreign Child",
-        price: 5000,
-      },
-    ],
+
+    adventure_adults_local: 5000,
+
+    adventure_children_local: 2000,
+
+    adventure_adults_foreign: 10000,
+    
+    adventure_children_foreign: 5000,
+
     guide: [
       {
         type: "Adult",

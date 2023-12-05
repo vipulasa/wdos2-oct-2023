@@ -35,12 +35,12 @@
 
                         <!-- Type of the room -->
                         <div class="mb-3">
-                            <label for="room_type" class="form-label">Room Type</label>
-                            <select x-model="$store.user.reservation.room_type" name="room_type" id="room_type"
+                            <label for="room_cost" class="form-label">Room Type</label>
+                            <select x-model="$store.user.reservation.room_cost" name="room_cost" id="room_cost"
                                 class="form-control">
                                 <option value="">Select</option>
                                 <template x-for="room in $store.accommodation.rooms">
-                                    <option x-bind:value="room.type">
+                                    <option x-bind:value="room.price">
                                         <span x-text="room.type"></span> - Rs. <span x-text="room.price"></span>
                                     </option>
                                 </template>
@@ -112,8 +112,8 @@
                             <h2>Adventures</h2>
 
                             <div class="mb-3">
-                                <label for="number_of_guests" class="form-label">Number of Adults</label>
-                                <select x-model="$store.user.reservation.adventure_adults" name="number_of_guests"
+                                <label for="number_of_guests" class="form-label">Number of Adults Local</label>
+                                <select x-model="$store.user.reservation.adventure_adults_local" name="adventure_adults_local"
                                     id="number_of_guests" class="form-control">
                                     <option value="">Select</option>
                                     <option value="1">1</option>
@@ -130,8 +130,39 @@
                             </div>
     
                             <div class="mb-3">
-                                <label for="number_of_guests" class="form-label">Number of Children</label>
-                                <select x-model="$store.user.reservation.adventure_children" name="number_of_guests"
+                                <label for="number_of_guests" class="form-label">Number of Children Local</label>
+                                <select x-model="$store.user.reservation.adventure_children_local" name="adventure_children_local"
+                                    id="number_of_guests" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="number_of_guests" class="form-label">Number of Adults Foreign</label>
+                                <select x-model="$store.user.reservation.adventure_adults_foreign" name="adventure_adults_foreign"
+                                    id="number_of_guests" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="number_of_guests" class="form-label">Number of Children Foreign</label>
+                                <select x-model="$store.user.reservation.adventure_children_foreign" name="adventure_children_foreign"
                                     id="number_of_guests" class="form-control">
                                     <option value="">Select</option>
                                     <option value="1">1</option>
@@ -158,13 +189,39 @@
                     </form>
                 </div>
                 <div>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Total Room Cost</td>
+                            <td>
+                                <span x-text="$store.user.reservation.room_cost * $store.user.reservation.number_of_rooms"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total Adventure Cost</td>
+                            <td>
+                                <span x-text="$store.user.reservation.adventure_adults_local * 1000"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+
+
                     <div>
                         <span>hotel</span>
                         <span x-text="$store.user.reservation.hotel"></span>
                     </div>
                     <div>
-                        <span>room</span>
-                        <span x-text="$store.user.reservation.room_type"></span>
+                        <span>room_cost</span>
+                        <span x-text="$store.user.reservation.room_cost"></span>
                     </div>
                     <div>
                         <span>room</span>
@@ -199,12 +256,20 @@
                         <span x-text="$store.user.reservation.adventure_type"></span>
                     </div>
                     <div>
-                        <span>adventure_adults</span>
-                        <span x-text="$store.user.reservation.adventure_adults"></span>
+                        <span>adventure_adults_local</span>
+                        <span x-text="$store.user.reservation.adventure_adults_local"></span>
                     </div>
                     <div>
-                        <span>adventure_children</span>
-                        <span x-text="$store.user.reservation.adventure_children"></span>
+                        <span>adventure_children_local</span>
+                        <span x-text="$store.user.reservation.adventure_children_local"></span>
+                    </div>
+                    <div>
+                        <span>adventure_adults_foreign</span>
+                        <span x-text="$store.user.reservation.adventure_adults_foreign"></span>
+                    </div>
+                    <div>
+                        <span>adventure_children_foreign</span>
+                        <span x-text="$store.user.reservation.adventure_children_foreign"></span>
                     </div>
                     <div>
                         <span>promo_code</span>
