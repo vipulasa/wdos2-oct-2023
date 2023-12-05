@@ -333,10 +333,11 @@
                                 <th scope="col">Total Discount</th>
                                 <th scope="col">Final Total</th>
                                 <th scope="col">Total Adventure Cost</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <template x-for="booking in favorites" :key="booking">
+                            <template x-for="(booking, index) in favorites" :key="booking">
                                 <tr>
                                     <td x-text="booking.checkin"></td>
                                     <td x-text="booking.checkout"></td>
@@ -351,6 +352,11 @@
                                     <td x-text="booking.total_discount"></td>
                                     <td x-text="booking.final_total"></td>
                                     <td x-text="booking.final_adventure_cost"></td>
+                                    <td>
+                                        <button class="btn btn-primary" x-on:click="bookFavorite(index)">
+                                            Book Now
+                                        </button>
+                                    </td>
                                 </tr>
                             </template>
                         </tbody>
@@ -568,6 +574,15 @@
 
                     // clear the booking from localstorage
                     localStorage.removeItem('booking');
+                },
+
+                bookFavorite(index) {
+                    // clear the booking from localstorage
+                    localStorage.removeItem('booking');
+
+                    this.booking = this.favorites[index];
+                    
+                    this.tab = 1;
                 },
 
                 addToFavorites() {
